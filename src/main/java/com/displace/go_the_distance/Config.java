@@ -17,26 +17,13 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class Config {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    public static final ModConfigSpec.BooleanValue LOG_DIRT_BLOCK = BUILDER
-            .comment("Whether to log the dirt block on common setup")
-            .define("logDirtBlock", true);
+    public static final ModConfigSpec.IntValue FOG_START_Y_LEVEL = BUILDER
+            .comment("The y-level where altitude fog begins to take effect.")
+            .defineInRange("fogStartYLevel", 100, -64, 319);
 
-    public static final ModConfigSpec.IntValue MAGIC_NUMBER = BUILDER
-            .comment("A magic number")
-            .defineInRange("magicNumber", 42, 0, Integer.MAX_VALUE);
-
-    public static final ModConfigSpec.ConfigValue<String> MAGIC_NUMBER_INTRODUCTION = BUILDER
-            .comment("What you want the introduction message to be for the magic number")
-            .define("magicNumberIntroduction", "The magic number is... ");
-
-    // a list of strings that are treated as resource locations for items
-    public static final ModConfigSpec.ConfigValue<List<? extends String>> ITEM_STRINGS = BUILDER
-            .comment("A list of items to log on common setup.")
-            .defineListAllowEmpty("items", List.of("minecraft:iron_ingot"), () -> "", Config::validateItemName);
+    public static final ModConfigSpec.ConfigValue<Double> FOG_Y_LEVEL_AMPLIFIER = BUILDER
+            .comment("The amount of amplification in fog as you increment per each y-level above the fog start level.")
+            .defineInRange("fogYLevelAmplifier", 0.05, 0.0, 1.0);
 
     static final ModConfigSpec SPEC = BUILDER.build();
-
-    private static boolean validateItemName(final Object obj) {
-        return obj instanceof String itemName && BuiltInRegistries.ITEM.containsKey(Identifier.parse(itemName));
-    }
 }
