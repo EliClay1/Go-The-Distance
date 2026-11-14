@@ -1,0 +1,13 @@
+{
+  "itemGroup.go_the_distance": "Example Mod Tab",
+  "block.go_the_distance.example_block": "Example Block",
+  "item.go_the_distance.example_item": "Example Item",
+
+  "go_the_distance.configuration.title": "Go The Distance Configs",
+  "go_the_distance.configuration.section.go_the_distance.common.toml": "Go The Distance Configs",
+  "go_the_distance.configuration.section.go_the_distance.common.toml.title": "Go The Distance Configs",
+  "go_the_distance.configuration.items": "Item List",
+  "go_the_distance.configuration.logDirtBlock": "Log Dirt Block",
+  "go_the_distance.configuration.magicNumberIntroduction": "Magic Number Text",
+  "go_the_distance.configuration.magicNumber": "Magic Number"
+}
